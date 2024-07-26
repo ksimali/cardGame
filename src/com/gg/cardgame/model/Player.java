@@ -4,6 +4,11 @@ public class Player {
 	private String name;
 	private Hand hand;
 
+	//getter
+	public String getName() {
+		return name;
+	}
+	
 	//constructor
 	public Player(String name) {
 		super();
@@ -23,6 +28,6 @@ public class Player {
 	public PlayingCard removeCard() {
 		return hand.removeCard();
 	}
-	
+
 	
 }
