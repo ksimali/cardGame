@@ -32,7 +32,9 @@ public class GameController {
 		this.view = view;
 		this.players = new ArrayList<Player>();
 		this.gameState = GameState.AddingPlayers;
+		this.evaluator = evaluator;
 		view.setController(this);
+		
 	}
 	
 	// method run() qui regarde l'état du jeu et affiche une vue
