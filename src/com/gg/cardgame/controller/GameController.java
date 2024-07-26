@@ -3,6 +3,7 @@ package com.gg.cardgame.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gg.cardgame.games.GameEvaluator;
 import com.gg.cardgame.model.Deck;
 import com.gg.cardgame.model.Player;
 import com.gg.cardgame.model.PlayingCard;
@@ -96,39 +97,7 @@ public class GameController {
 	// implementation autres methods
 	
 	void evaluateWinner() {
-		//initialisation des variables
-		Player bestPlayer = null;
-		int bestRank = -1;
-		int bestSuit = -1;
-		
-		//comparer les cartes des joueurs
-		for(Player player : players) {
-			boolean newBestPlayer = false;
-			
-			if(bestPlayer == null) {
-				newBestPlayer = true;
-			}else {
-				PlayingCard pc = player.getCard(0);
-				int thisRank = pc.getRank().value();
-				if(thisRank >= bestRank) {
-					if(thisRank > bestRank) {
-						newBestPlayer = true;
-					}else {
-						if(pc.getSuit().value() > bestSuit) {
-							newBestPlayer = true;
-						}
-					}
-				}
-			}
-			
-			if(newBestPlayer) {
-				bestPlayer = player;
-				PlayingCard pc = player.getCard(0);
-				bestRank = pc.getRank().value();
-				bestSuit = pc.getSuit().value();
-			}
-		}
-		winner = bestPlayer;
+		winner = new GameEvaluator().evaluateWinner(players); // call GameEvaluator class
 	}
 	
 	void displayWinner() {
