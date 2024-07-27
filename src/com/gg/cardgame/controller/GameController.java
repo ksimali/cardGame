@@ -7,7 +7,8 @@ import com.gg.cardgame.games.GameEvaluator;
 import com.gg.cardgame.model.Deck;
 import com.gg.cardgame.model.Player;
 import com.gg.cardgame.model.PlayingCard;
-import com.gg.cardgame.view.View;
+import com.gg.cardgame.view.CommandLineView;
+import com.gg.cardgame.view.GameViewable;
 
 
 public class GameController {
@@ -20,13 +21,13 @@ public class GameController {
 	Deck deck;
 	List<Player> players;
 	Player winner;
-	View view;
+	GameViewable view;
 	
 	GameState gameState;
 	GameEvaluator evaluator;
 	
 	// constructor
-	public GameController(Deck deck, View view, GameEvaluator evaluator){
+	public GameController(Deck deck, GameViewable view, GameEvaluator evaluator){
 		super();
 		this.deck = deck;
 		this.view = view;
@@ -112,6 +113,18 @@ public class GameController {
 			deck.returnCardToDeck(player.removeCard());
 		}
 	}
-	
+	// function to exit the game
+	void exitGame() {
+		System.exit(0);
+	}
+
+	public void nextAction(String nextChoice) {
+		if("+q".equals(nextChoice)) {
+			exitGame();
+		}else {
+			startGame();
+		}
+		
+	}
 	
 }

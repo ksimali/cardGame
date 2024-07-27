@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.gg.cardgame.controller.GameController;
 
-public class View {
+public class CommandLineView implements GameViewable{
 	
 	GameController controller;
 	Scanner keyboard = new Scanner(System.in);
@@ -31,9 +31,8 @@ public class View {
 	}
 	
 	public void promptForNewGame() {
-		System.out.println("Appuyer sur entrer pour rejouer");
-		keyboard.nextLine();
-		controller.startGame();
+		System.out.println("Appuyer sur entrer pour rejouer ou +q pour quitter");
+		controller.nextAction(keyboard.nextLine());
 	}
 	
 	public void showWinner(String playerName) {
