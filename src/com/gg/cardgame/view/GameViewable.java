@@ -4,19 +4,19 @@ import com.gg.cardgame.controller.GameController;
 
 public interface GameViewable {
 	
-	void setController(GameController controller);
+	public void setController(GameController controller);
 
-    void promptForPlayerName();
+    public void promptForPlayerName();
 
-    void showPlayerName(int playerIndex, String name);
+    public void showPlayerName(int playerIndex, String name);
 
-    void showFaceDownCardForPlayer(int playerIndex, String name);
+    public void showFaceDownCardForPlayer(int playerIndex, String name);
 
-    void promptForFlip();
+    public void promptForFlip();
 
-    void showCardForPlayer(int playerIndex, String name, String rank, String suit);
+    public void showCardForPlayer(int playerIndex, String name, String rank, String suit);
 
-    void showWinner (String winnerName);
+    public void showWinner (String winnerName);
 
-    void promptForNewGame();
+    public void promptForNewGame();
 }

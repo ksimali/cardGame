@@ -31,9 +31,8 @@ public class CommandLineView implements GameViewable{
 	}
 	
 	public void promptForNewGame() {
-		System.out.println("Appuyer sur entrer pour rejouer");
-		keyboard.nextLine();
-		controller.startGame();
+		System.out.println("Appuyer sur entrer pour rejouer ou +q pour quitter");
+		controller.nextAction(keyboard.nextLine());
 	}
 	
 	public void showWinner(String playerName) {
